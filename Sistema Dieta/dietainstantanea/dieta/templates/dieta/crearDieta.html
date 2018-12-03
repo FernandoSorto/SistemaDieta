@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+
+{% block content%}
+<div class="container">
+    <h1>Primero debemos saber tus preferencias</h1>
+    <form action="{% url 'dietaApp:paginaDieta' %}" id="formCompleta" method="post"> {% csrf_token %}
+        <div class="form-group">
+            <label class="form-check-label" for="exampleCheck1" >Selecciona el tipo de dieta</label>
+            <select class="custom-select mr-sm-2" name="tipoDieta" >
+            <option selected>Escoje...</option>
+            <option value="1">Regular</option>
+            <option value="2">Vegetariana</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-check-label" for="exampleCheck1" >Selecciona el numero de calorias diarias de tu dieta</label>
+            <select class="custom-select mr-sm-2" name="calorias" id="inlineFormCustomSelect">
+                <option selected>Escoje...</option>
+                <option value="1200">1200 calorias</option>
+                <option value="1400">1400 calorias</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-check-label" for="exampleCheck1" >Selecciona alimentos que quieras dejar fuera de tu dieta</label><br>
+            <select class="selectpicker form-control" name="ingredientes" data-style="custom-select mr-sm-2" title="Escoje..." multiple data-live-search="true">
+                {% for ing in object_list %}
+                <option data-tokens="{{ing.nomIngrediente}}" value={{ing.id}} >{{ing.nomIngrediente}}</option>
+                {% endfor %}
+            </select>
+            <small id="emailHelp" class="form-text text-muted">Puedes escoger todos los que quieras</small>
+        </div>
+        <div class="form-group">
+            <label class="form-check-label" for="exampleCheck1" >Consideraciones extra</label>
+            <select class="selectpicker form-control" name="asal" multiple data-style="custom-select mr-sm-2" title="Escoje..." id="salazu" >
+                <option value="1">Poca azucar</option>
+                <option value="2">Poca sal</option>
+            </select>
+            <small id="emailHelp" class="form-text text-muted">Puedes escoger todos los que quieras. Puedes dejar este espacio en blanco</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Crear dieta</button>
+      </select>
+    </form>
+</div>
+
+
+{% endblock %}

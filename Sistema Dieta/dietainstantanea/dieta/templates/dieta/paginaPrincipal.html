@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="bg-success ">
+    <div class="container ">
+        <br>
+        <header class="masthead text-white text-center">
+            <div class="container">
+                <h1 class="text-uppercase mb-0">DIETA INSTANTANEA</h1>
+                <h2 class="font-weight-light mb-0">Una pagina que quiere que te veas y sientas bien</h2>
+            </div>
+        </header>
+        <br>
+        <a type="button" href="{% url 'dietaApp:paginaDieta'%}" class="btn btn-primary btn-lg btn-block bg-info text-white">Comenzar dieta</a>
+    </div>
+</div>
+
+{% endblock %}

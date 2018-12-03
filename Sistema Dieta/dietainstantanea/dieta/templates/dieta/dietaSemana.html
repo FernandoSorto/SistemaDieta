@@ -1,0 +1,68 @@
+{% extends 'base.html'%}
+
+{% block content%}
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Tiempo</th>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miercoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+                <th>Sabado</th>
+                <th>Domingo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Desayunos</th>
+                {% for des in desayunos_list %}
+                <td>
+                    <h5>{{des.nombre}}</h5>
+                    <small>{{des.preparacion}}</small>
+                    <h5>Ingredientes</h5>
+                    <ul>
+                        {% for ing in des.ingredientes.all%}
+                        <li><small>{{ing}}</small></li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                {% endfor %}
+                
+            </tr>
+            <tr>
+                <th>Almuerzos</th>
+                {% for alm in almuerzo_list%}
+                <td>
+                    <h5>{{alm.nombre}}</h5>
+                    <small>{{alm.preparacion}}</small>
+                    <h5>Ingredientes</h5>
+                    <ul>
+                        {% for ing in alm.ingredientes.all%}
+                        <li><small>{{ing}}</small></li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Cenas</th>
+                {% for cen in cena_list%}
+                <td>
+                    <h5>{{cen.nombre}}</h5>
+                    <small>{{cen.preparacion}}</small>
+                    <h5>Ingredientes</h5>
+                    <ul>
+                        {% for ing in cen.ingredientes.all%}
+                        <li><small>{{ing}}</small></li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock%}
